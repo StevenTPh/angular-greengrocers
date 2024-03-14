@@ -1,8 +1,25 @@
+<button (click)="filterTodos()">
+  <ng-container *ngIf="this.filter === ''">Showing all products</ng-container>
+  <ng-container *ngIf="this.filter === 'vegetable'"
+    >Showing all vegetables</ng-container
+  >
+  <ng-container *ngIf="this.filter === 'fruit'"
+    >Showing all fruits</ng-container
+  >
+</button>
+<button (click)="sortByPrice()">Sort by Price</button>
+<button (click)="sortByName()">Sort by Name</button>
+<button (click)="unFilter()">Reset</button>
 <ul class="item-list store--item-list">
-  <li *ngFor="let item of items | async">
-    <div class="store--item-icon">
-      <img src="assets/icons/{{ item.id }}.svg" alt="{{ item.name }}" />
-    </div>
-    <button (click)="addToCart(item)">Add to cart</button>
-  </li>
+  <ng-container *ngFor="let item of items | async">
+    <li>
+      <div
+        *ngIf="item.type === this.filter || this.filter === ''"
+        class="store--item-icon"
+      >
+        <img src="assets/icons/{{ item.id }}.svg" alt="{{ item.name }}" />
+        <button (click)="addToCart(item)">Add to cart</button>
+      </div>
+    </li>
+  </ng-container>
 </ul>

@@ -7,7 +7,7 @@
         alt="{{ item.name }}"
       />
       <p>{{ item.name }}</p>
-      <button (click)="decreaseToCart(item)"  class="quantity-btn remove-btn center">-</button>
+      <button (click)="decreaseToCart(item)" class="quantity-btn remove-btn center">-</button>
       <span class="quantity-text center">{{ item.count }}</span>
       <button (click)="addToCart(item)" class="quantity-btn add-btn center">+</button>
     </li>

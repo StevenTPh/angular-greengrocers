@@ -41,6 +41,7 @@ export class ItemService {
         id: item.id,
         name: item.name,
         price: item.price,
+        type: item.type,
         count: 1,
       };
       this.cartList.push(createItem);
@@ -71,6 +72,8 @@ export class ItemService {
     }
     return this.total;
   }
+
+  
 
   constructor() {}
 }
