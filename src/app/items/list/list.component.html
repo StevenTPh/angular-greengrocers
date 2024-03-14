@@ -12,11 +12,8 @@
 <button (click)="unFilter()">Reset</button>
 <ul class="item-list store--item-list">
   <ng-container *ngFor="let item of items | async">
-    <li>
-      <div
-        *ngIf="item.type === this.filter || this.filter === ''"
-        class="store--item-icon"
-      >
+    <li *ngIf="item.type === this.filter || this.filter === ''">
+      <div class="store--item-icon">
         <img src="assets/icons/{{ item.id }}.svg" alt="{{ item.name }}" />
         <button (click)="addToCart(item)">Add to cart</button>
       </div>
