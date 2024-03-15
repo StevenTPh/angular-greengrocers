@@ -18,16 +18,15 @@ export class ListComponent {
 
     // filter list
     filter = '';
-    count: number = 0;
     filterTodos() {
-      this.count++;
-      if (this.count === 1) {
+      
+      if (this.filter === '') {
         this.filter = 'vegetable';
-      } else if(this.count === 2) {
+      } else if(this.filter === 'vegetable') {
         this.filter = 'fruit';
       } else {
         this.filter = ''
-        this.count = 0;
+        
       }
     }
 
@@ -41,7 +40,7 @@ export class ListComponent {
 
     async unFilter() {
       this.filter = '',
-      this.count = 0,
+      
       (await this.items).sort((a, b) => a.id.localeCompare(b.id));
     }
 }
